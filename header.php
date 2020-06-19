@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 
-<html>
+<html <?php language_attributes(); ?>>
 <head>
+  <meta charset="<?php bloginfo('charset'); ?>">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class();?>>
   <header class="site-header">
     <div class="banner-area">
-    <div class="page-banner" style="background-image: url(<?php echo get_theme_file_uri('/images/logo.png') ?>);"></div>
+      <a href="<?php echo site_url() ?>">
+    <div class="page-banner" style="background-image: url(<?php echo get_theme_file_uri('/images/logo.png') ?>);"></div></a>
     </div>
     <div class="wrapper">
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <div class="nav-top">
+     
       <nav>
+        
         <ul>
-         <li><a href="#">1Polska</a></li>
-         <li><a href="#">Pafere</a></li>
-         <li><a href="#">Podziemna TV</a></li>
-         <li><a href="#">NISS</a></li>
-         <li><a href="#">Nawigatorzy jutra</a></li>
-        </ul>
-      </nav>
-      </div>
-      <div class="nav-bottom">
-      <nav>
-        <ul>
+         <li><a href="www.1polska.pl">1Polska</a></li>
+         <li><a href="www.pafere.org">Pafere</a></li>
+         <li><a href="www.podziemnatv.pl">Podziemna TV</a></li>
+         <li><a href="www.niss.org.pl">NISS</a></li>
+         <li><a href="www.youtube.com/channel/UC06cQHmOar7H-s395iVvQZw">Nawigatorzy jutra</a></li>
+       
          <li><a href="#">Polska</a></li>
          <li><a href="#">Świat</a></li>
          <li><a href="#">Religie</a></li>
@@ -35,7 +34,7 @@
          <li><a href="#">Szukaj</a></li>
         </ul>
       </nav>
-      </div>
+    
   <label for="nav-toggle" class="nav-toggle-label">
   <span></span>
 
@@ -43,4 +42,5 @@
   </label>
     </div>
     </header>
+    
 

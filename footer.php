@@ -14,10 +14,9 @@
   </div>
   <div class="additional-col">
     <ul>
-      <li><a href="#">Pliki do pobrania</a></li>
+      <li><a href="#">Pliki do pobrlllania</a></li>
       <li><a href="#">Napisz do nas</a></li>
-      <li><a href="#" class="social-color-facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-      <li><a href="#" class="social-color-youtube"><i class="fab fa-youtube-square" aria-hidden="true"></i></a></li>     
+
     </ul>
    
   </div>

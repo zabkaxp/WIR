@@ -5,6 +5,8 @@ get_header();?>
       <div class="blog-posts-container">
       <?php
 while(have_posts()){
+  wpb_set_post_views(get_the_ID());
+  wpb_get_post_views(get_the_ID());
   the_post();?>
 <h2><?php 
 the_title();

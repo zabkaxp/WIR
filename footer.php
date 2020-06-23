@@ -14,11 +14,11 @@
   </div>
   <div class="additional-col">
     <ul>
-      <li><a href="#">Pliki do pobrlllania</a></li>
+      <li><a href="#">Pliki do pobrania</a></li>
       <li><a href="#">Napisz do nas</a></li>
 
     </ul>
-   
+      
   </div>
 </footer>
 <?php wp_footer();?>

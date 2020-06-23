@@ -13,13 +13,10 @@ get_header();
 
 ?></h1>
 <p><?php the_archive_description(); ?></p>
-
-
-
 <?php 
-while(have_posts()){
+while(have_posts()){  
   the_post();?>
-
+  
 
 <div class="post-item">
     <h2 class="headline headline--medium headline--post-title">

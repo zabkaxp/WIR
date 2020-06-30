@@ -1,13 +1,26 @@
 <?php
 
 function website_files(){
-    wp_enqueue_script('main-js', get_theme_file_uri('/js/scripts-bundled.js'), NULL, microtime(), true);
+    
     wp_enqueue_style('custom-google-fonts', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
     wp_enqueue_style('font-awesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+    wp_enqueue_script('main-js', get_theme_file_uri('/js/scripts.js'), NULL, microtime(), true);
     wp_enqueue_style('main_styles', get_stylesheet_uri(), NULL, microtime());
 }
 
 add_action('wp_enqueue_scripts', 'website_files');
+
+add_filter('script_loader_tag', 'add_id_to_script', 10, 3 );
+ 
+function add_id_to_script( $tag, $handle, $src ) {
+    if ('main-js' === $handle ) {
+        $tag = '<script type="module" src="' . esc_url( $src ) . '" id="scriptsjs" data-app-key="MY_APP_KEY"></script>';
+    }
+ 
+    return $tag;
+}
+
+
 
 function website_features(){
  add_theme_support('title-tag');
@@ -62,8 +75,20 @@ function wpb_get_post_views($postID){
 
 add_filter('ai1wm_exclude_content_from_export', 'ignoreCertainFiles');
 
-function ignoreCertainFiles($exclok ude_filters){
+function ignoreCertainFiles($exclude_filters){
     $exclude_filters[]= 'themes/1polska/node_modules';
     return $exclude_filters;
 }
+
+/**
+ * Proper ob_end_flush() for all levels
+ *
+ * This replaces the WordPress `wp_ob_end_flush_all()` function
+ * with a replacement that doesn't cause PHP notices.
+ */
+remove_action( 'shutdown', 'wp_ob_end_flush_all', 1 );
+add_action( 'shutdown', function() {
+   while ( @ob_end_flush() );
+} );
 ?>
+

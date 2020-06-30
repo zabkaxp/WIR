@@ -4,42 +4,65 @@ get_header();
 ?>
 <main class="blog-posts">
       <div class="blog-posts-container">
-<?php 
-while(have_posts()){
-  the_post();?>
 
+      <section class="posts-all">
+        <h3 class="posts-all-title posts-cat-title"><span class="posts-before-element"></span>
+        <a href="#">NAJNOWSZE</a>
+        
+        
+        </h3>
+        <section class="posts-all-container">
+      
 
-<div class="post-item">
-    <h2 class="headline headline--medium headline--post-title">
-        <a href="<?php the_permalink();?>">
-            <?php the_title(); ?>
-        </a>
-    </h2>
-    <div class="metabox">
-        <p>Posted by <?php the_author_posts_link();?> on <?php the_time('d.m.Y'); ?> in 
-        <?php echo get_the_category_list(', '); ?>
-    </p>
+        <?php 
+while(have_posts()){  
+    the_post();?>
+ 
+<article class="card-container">
+  <div class="card">
+    <div class="card-picture">
+    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+        <?php the_post_thumbnail(); ?></a>
     </div>
-    <div class="generic-content">
-        <?php the_excerpt(); ?>
-        <p>
-            <a class="btn btn--blue" href="<?php the_permalink();?>">Continue reading &raquo;</a>
-        </p>
+    <h4 class="card-heading">
+    <a href="<?php the_permalink(); ?>" title="Kategoria">
+              <?php echo get_the_category_list(', '); ?></a>
+</h4>
+    <div class="card-details">
+    <div class="card-details-top">  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <?php the_title(); ?>
+              </a></div>
+    <div class="card-details-bottom"><?php 
+              the_author_posts_link();?> - <?php the_time('d.m.Y'); ?>
+              </div>
     </div>
+  </div>
+</article>
 
-
-</div>
 
 <?php
 }  
+
+?>
+  <aside class="ad-image-container">
+
+
+<div class="ad-image" style="background-image: url(<?php echo get_theme_file_uri('/images/reklama.png') ?>);"></div>
+
+
+</aside>
+
+ </section>
+        </section>
+
+<?php
+ 
 echo paginate_links();
 ?>
-
-
-
-
-
 </div></main>
+
+
+
 
 <?php
 get_footer();

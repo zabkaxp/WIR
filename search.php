@@ -4,25 +4,14 @@ get_header();
 ?>
 <main class="blog-posts">
       <div class="blog-posts-container">
-<h1>
-    <?php if(is_category()) {
-   echo single_cat_title();
-} else if (is_author()){
-    echo "Autor: "; the_author();
-} 
-
-?></h1>
-<p><?php the_archive_description(); ?></p>
 <?php 
-while(have_posts()){  
+while(have_posts()){
   the_post();?>
-  
+
 
 <div class="post-item">
     <h2 class="headline headline--medium headline--post-title">
-        <a href="<?php the_permalink();?>">
-            <?php the_title(); ?>
-        </a>
+        Wyniki wyszukiwania
     </h2>
     <div class="metabox">
         <p>Opublikowano przez: <?php the_author_posts_link();?> dnia <?php the_time('d.m.Y'); ?> w kategorii 
@@ -43,6 +32,10 @@ while(have_posts()){
 }  
 echo paginate_links();
 ?>
+
+
+
+
 
 </div></main>
 

@@ -13,7 +13,7 @@ the_title();
 
 ?></h2>
 <div class="metabox">
-        <p>Posted by <?php the_author_posts_link();?> on <?php the_time('d.m.Y'); ?> in 
+        <p>Opublikowano przez: <?php the_author_posts_link();?> dnia <?php the_time('d.m.Y'); ?> w kategorii 
         <?php echo get_the_category_list(', '); ?>
     </p>
     </div>

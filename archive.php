@@ -25,7 +25,29 @@ while(have_posts()){
         </a>
     </h2>
     <div class="metabox">
-        <p>Opublikowano przez: <?php the_author_posts_link();?> dnia <?php the_time('d.m.Y'); ?> w kategorii 
+        <p>
+        
+        
+        <?php 
+ 
+        $relatedAuthors = get_field('powiazany_autor');
+        if($relatedAuthors){ foreach($relatedAuthors as $author){ ?>
+          
+          <a href="<?php echo get_the_permalink($author); ?>">
+          <?php echo get_the_title($author); ?> </a>
+  <?php   }  }else{ the_author_posts_link();}
+    
+    
+  
+ wp_reset_postdata(); 
+  
+  
+  ?>
+
+        
+        
+        
+        dnia <?php the_time('d.m.Y'); ?> w kategorii 
         <?php echo get_the_category_list(', '); ?>
     </p>
     </div>

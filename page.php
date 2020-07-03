@@ -9,6 +9,7 @@ the_title();
 ?>
 </h1>
 <div class="generic-content">
+ 
 <?php
 the_content();
  ?>

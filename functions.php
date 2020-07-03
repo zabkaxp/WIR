@@ -28,6 +28,8 @@ function website_features(){
  register_nav_menu('header-menu-categories', 'Header Menu Categories');
  add_theme_support('post-thumbnails');
  add_image_size('front-page-thumbnail', 400, 250, true);
+ add_image_size('ludzie-small-thumbnail', 312, 300, true);
+ add_image_size('ludzie-big-thumbnail', 518, 410, true);
 }
 add_action('after_setup_theme', 'website_features');
 
@@ -80,6 +82,9 @@ function ignoreCertainFiles($exclude_filters){
     return $exclude_filters;
 }
 
+
+
+
 /**
  * Proper ob_end_flush() for all levels
  *
@@ -91,4 +96,3 @@ add_action( 'shutdown', function() {
    while ( @ob_end_flush() );
 } );
 ?>
-

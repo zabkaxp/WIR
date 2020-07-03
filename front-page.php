@@ -34,14 +34,28 @@ while ($homepagePosts->have_posts()){
     <div class="card-details-top">  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
               <?php the_title(); ?>
               </a></div>
-    <div class="card-details-bottom"><?php 
-              the_author_posts_link();?> - <?php the_time('d.m.Y'); ?>
+    <div class="card-details-bottom">
+
+
+<?php 
+ 
+$relatedAuthors = get_field('powiazany_autor');
+if($relatedAuthors){ foreach($relatedAuthors as $author){ ?>
+  
+  <a href="<?php echo get_the_permalink($author); ?>">
+  <?php echo get_the_title($author); ?> </a>
+<?php   }  }else{ the_author_posts_link();}
+
+
+
+wp_reset_postdata(); 
+
+
+?> - <?php the_time('d.m.Y'); ?>
               </div>
     </div>
   </div>
 </article>
-
-
             <?php
     } wp_reset_postdata(); ?>
            
@@ -76,8 +90,24 @@ while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
     <div class="card-details-top">  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
               <?php the_title(); ?>
               </a></div>
-    <div class="card-details-bottom"><?php 
-              the_author_posts_link();?> - <?php the_time('d.m.Y'); ?>
+    <div class="card-details-bottom">
+      
+    <?php 
+ 
+ $relatedAuthors = get_field('powiazany_autor');
+ if($relatedAuthors){ foreach($relatedAuthors as $author){ ?>
+   
+   <a href="<?php echo get_the_permalink($author); ?>">
+   <?php echo get_the_title($author); ?> </a>
+<?php   }  }else{ the_author_posts_link();}
+
+
+
+wp_reset_postdata(); 
+
+
+?>
+    - <?php the_time('d.m.Y'); ?>
               </div>
     </div>
   </div>
@@ -117,8 +147,25 @@ while ( $popularpost->have_posts() ) : $popularpost->the_post(); ?>
     <div class="card-details-top-see-also">  <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
               <?php the_title(); ?>
               </a></div>
-    <div class="card-details-bottom-see-also"><?php 
-              the_author_posts_link();?> - <?php the_time('d.m.Y'); ?>
+    <div class="card-details-bottom-see-also">
+    
+    <?php 
+ 
+ $relatedAuthors = get_field('powiazany_autor');
+ if($relatedAuthors){ foreach($relatedAuthors as $author){ ?>
+   
+   <a href="<?php echo get_the_permalink($author); ?>">
+   <?php echo get_the_title($author); ?> </a>
+<?php   }  }else{ the_author_posts_link();}
+
+
+
+wp_reset_postdata(); 
+
+
+?>
+    
+    - <?php the_time('d.m.Y'); ?>
               </div>
     </div>
     </div>
